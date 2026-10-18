@@ -1,0 +1,1 @@
+node_modules/\ndist/\n.dev.vars\n.env*\n!.env.example\n.wrangler/\n.DS_Store\n
