@@ -47,7 +47,9 @@ export default function App(){
  const [error,setError]=useState("");
  const input=useRef<HTMLInputElement>(null);
  const reportRef=useRef<HTMLDivElement>(null);
- useEffect(()=>()=>{photos.forEach(p=>URL.revokeObjectURL(p.preview));},[photos]);
+ const photosRef=useRef<Photo[]>([]);
+ useEffect(()=>{photosRef.current=photos;},[photos]);
+ useEffect(()=>()=>{photosRef.current.forEach(p=>URL.revokeObjectURL(p.preview));},[]);
  async function onFiles(files:FileList|null){
   if(!files?.length)return;
   setError("");setReport(null);setPreparing(true);
